@@ -1,4 +1,4 @@
-# Lumina Learning - Student Class Notes Web App
+# Student Class Notes Web App
 
 A production-ready static web application built with **React**, **Vite**, **Tailwind CSS**, and **Mammoth.js**.
 
@@ -30,7 +30,9 @@ d:/race_note_app/
 Adding a new day's materials is effortless—**no manual conversion or Markdown writing required!**
 
 ### Step 1: Create the Day Folder
+
 Create a folder under `src/content/` named `day-N` (e.g. `day-2`, `day-3`):
+
 ```bash
 mkdir src/content/day-2
 ```
@@ -60,6 +62,7 @@ mkdir src/content/day-2
      ```
 
 ### Step 3: Git Commit & Push to Deploy
+
 ```bash
 git add src/content/day-2
 git commit -m "Add Day 2 docx transcripts and summary"
@@ -82,17 +85,21 @@ git push origin main
 ## 🛠️ Local Development & Commands
 
 ### Installation
+
 ```bash
 npm install
 ```
 
 ### Run Local Development Server (Includes Auto-Docx Conversion)
+
 ```bash
 npm run dev
 ```
+
 Open **http://localhost:5173**.
 
 ### Production Build Verification
+
 ```bash
 npm run build
 ```
