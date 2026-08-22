@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+    color: #111c2d;
+    background-color: #f9f9ff;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Manrope', sans-serif;
+  }
+}
+
+.hover-card {
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 20px rgba(0, 88, 188, 0.04);
+}
+
+.hover-card:hover {
+  box-shadow: 0 8px 30px rgba(0, 88, 188, 0.08);
+  border-color: #0070eb;
+}
+
+/* Custom hide scrollbar utility */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Converted DOCX HTML Styling */
+.docx-rendered-html h1 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.875rem; /* 30px */
+  font-weight: 700;
+  color: #111c2d;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.25;
+}
+
+.docx-rendered-html h2 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.5rem; /* 24px */
+  font-weight: 600;
+  color: #111c2d;
+  margin-top: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.docx-rendered-html h3 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.25rem; /* 20px */
+  font-weight: 600;
+  color: #111c2d;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.docx-rendered-html p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #414755;
+  margin-bottom: 1.25rem;
+}
+
+.docx-rendered-html ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.docx-rendered-html ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.docx-rendered-html li {
+  margin-bottom: 0.5rem;
+  color: #414755;
+}
+
+.docx-rendered-html img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin: 1.5rem 0;
+}
+
+.docx-rendered-html blockquote {
+  background-color: #f0f3ff;
+  border-left: 4px solid #0058bc;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: #111c2d;
+}
+
+.docx-rendered-html table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+.docx-rendered-html th, 
+.docx-rendered-html td {
+  border: 1px solid #c1c6d7;
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+.docx-rendered-html th {
+  background-color: #e7eeff;
+  font-weight: 600;
+}
