@@ -103,3 +103,11 @@ Open **http://localhost:5173**.
 ```bash
 npm run build
 ```
+
+# Test run (safe, no push, auto-cleans)
+
+python automation/orchestrator.py --dry-run
+
+# Real publish (commits + pushes to GitHub)
+
+python automation/orchestrator.py
