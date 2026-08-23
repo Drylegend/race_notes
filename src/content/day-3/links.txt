@@ -1,0 +1,3 @@
+# Format: Title | URL | Short Description (one link per line)
+Microsoft AI-103 Certification Overview | https://learn.microsoft.com | Official study guide and learning path for AI-103
+Azure AI Search Documentation | https://learn.microsoft.com/azure/search | Comprehensive API reference for vector search
