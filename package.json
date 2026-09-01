@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "content:build": "node scripts/build-content.mjs",
-    "predev": "node scripts/build-content.mjs",
-    "prebuild": "node scripts/build-content.mjs",
+    "doodles:build": "node scripts/build-lab-doodles.mjs",
+    "predev": "node scripts/build-content.mjs && node scripts/build-lab-doodles.mjs",
+    "prebuild": "node scripts/build-content.mjs && node scripts/build-lab-doodles.mjs",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"

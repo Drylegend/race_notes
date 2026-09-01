@@ -1,11 +1,18 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 export default function Sidebar({ days, activeDaySlug, activeTab, mobileOpen, setMobileOpen }) {
   const navigate = useNavigate();
+  const location = useLocation();
+  const isDoodlesActive = location.pathname.startsWith('/lab-doodles');
 
   const handleDaySelect = (daySlug) => {
-    navigate(`/${daySlug}/${activeTab}`);
+    navigate(`/${daySlug}/${activeTab || 'transcripts'}`);
+    if (setMobileOpen) setMobileOpen(false);
+  };
+
+  const handleDoodlesSelect = () => {
+    navigate('/lab-doodles');
     if (setMobileOpen) setMobileOpen(false);
   };
 
@@ -26,9 +33,12 @@ export default function Sidebar({ days, activeDaySlug, activeTab, mobileOpen, se
 
       {/* Main Nav Links */}
       <div className="flex-1 overflow-y-auto py-4">
+        <div className="px-4 pb-2">
+          <span className="text-xs font-label uppercase tracking-wider text-secondary font-semibold">Course Days</span>
+        </div>
         <ul className="space-y-1">
           {days.map((day) => {
-            const isActive = day.slug === activeDaySlug;
+            const isActive = !isDoodlesActive && day.slug === activeDaySlug;
             return (
               <li key={day.slug}>
                 <button
@@ -47,6 +57,31 @@ export default function Sidebar({ days, activeDaySlug, activeTab, mobileOpen, se
               </li>
             );
           })}
+        </ul>
+
+        {/* Visual Divider & Section Header */}
+        <div className="pt-5 pb-2 px-4">
+          <div className="border-t border-outline-variant/40 mb-3" />
+          <span className="text-xs font-label uppercase tracking-wider text-secondary font-semibold">Visual Notes</span>
+        </div>
+
+        {/* Standalone Lab Doodles Navigation Item */}
+        <ul className="space-y-1">
+          <li>
+            <button
+              onClick={handleDoodlesSelect}
+              className={`w-full flex items-center gap-3 px-4 py-3 text-left font-label text-label-md transition-all border-l-4 ${
+                isDoodlesActive
+                  ? 'bg-secondary-container text-primary border-primary font-bold shadow-sm'
+                  : 'text-on-surface-variant hover:bg-surface-variant border-transparent'
+              }`}
+            >
+              <span className={`material-symbols-outlined ${isDoodlesActive ? 'text-primary' : 'text-secondary'}`}>
+                draw
+              </span>
+              <span>Lab Doodles</span>
+            </button>
+          </li>
         </ul>
       </div>
     </div>

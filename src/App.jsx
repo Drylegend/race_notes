@@ -6,7 +6,48 @@ import TabsNav from './components/TabsNav';
 import TranscriptsTab from './components/TranscriptsTab';
 import SummaryTab from './components/SummaryTab';
 import ImportantLinksTab from './components/ImportantLinksTab';
+import LabDoodlesTab from './components/LabDoodlesTab';
 import { getAvailableDays, getDayContent } from './utils/contentLoader';
+
+function LabDoodlesView({ days, mobileOpen, setMobileOpen, searchQuery, setSearchQuery }) {
+  return (
+    <div className="flex min-h-screen bg-background text-on-background">
+      {/* Sidebar Navigation */}
+      <Sidebar
+        days={days}
+        mobileOpen={mobileOpen}
+        setMobileOpen={setMobileOpen}
+      />
+
+      {/* Main Content Area */}
+      <div className="flex-1 flex flex-col md:ml-72 min-h-screen">
+        {/* Header App Bar */}
+        <Header
+          onMenuToggle={() => setMobileOpen(true)}
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+        />
+
+        {/* Page Content Canvas */}
+        <main className="flex-1 px-margin-mobile md:px-margin-desktop py-8 md:py-10 w-full">
+          {/* Page Title & Subtitle */}
+          <div className="mb-8">
+            <h2 className="font-headline text-headline-lg-mobile md:text-headline-lg text-on-surface mb-2 font-bold flex items-center gap-3">
+              <span className="material-symbols-outlined text-primary text-3xl md:text-4xl">draw</span>
+              <span>Lab Doodles & Visual Notes</span>
+            </h2>
+            <p className="font-body text-body-md text-secondary max-w-2xl">
+              Architectural sketches, whiteboard diagrams, conceptual breakdowns, and visual reference notes.
+            </p>
+          </div>
+
+          {/* Standalone Lab Doodles Content */}
+          <LabDoodlesTab searchQuery={searchQuery} />
+        </main>
+      </div>
+    </div>
+  );
+}
 
 function MainView({ days, mobileOpen, setMobileOpen, searchQuery, setSearchQuery }) {
   const { daySlug, tabId } = useParams();
@@ -85,6 +126,18 @@ export default function App() {
       <Route
         path="/"
         element={<Navigate to={`/${defaultDay}/transcripts`} replace />}
+      />
+      <Route
+        path="/lab-doodles"
+        element={
+          <LabDoodlesView
+            days={days}
+            mobileOpen={mobileOpen}
+            setMobileOpen={setMobileOpen}
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+          />
+        }
       />
       <Route
         path="/:daySlug"
